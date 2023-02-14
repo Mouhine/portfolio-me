@@ -74,6 +74,7 @@ const About = () => {
                 <AiFillGithub size={24} />
               </motion.div>
             </Link>
+
             <Link
               href={"https://www.linkedin.com/in/mohamed-mouhine-956a15221/"}
               target="blank"
@@ -88,15 +89,6 @@ const About = () => {
                 <AiFillLinkedin size={24} />
               </motion.div>
             </Link>
-            <motion.div
-              variants={item}
-              whileHover={{
-                scale: 1.1,
-              }}
-              className="p-1 rounded-full border bg-[#205295]"
-            >
-              <AiFillCodepenCircle size={24} />
-            </motion.div>
           </motion.section>
           <section className="flex flex-col md:flex-row items-left  md:items-center md:space-x-8 space-y-3 md:space-y-0 py-6 z-30 flex-wrap ">
             <motion.button
