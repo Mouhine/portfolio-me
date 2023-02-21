@@ -50,9 +50,9 @@ const About = () => {
         <section className="md:col-span-6 col-span-12  place-self-center  ">
           <section className="text-[60px] leading-[75px]  ">
             <AnimatedText text="Hi,I'am   " fontSize={"3xl"} delay={0} />
-            <AnimatedText text="Mohammed " fontSize={"4xl"} delay={0.2} />
+            <AnimatedText text="Mohammed" fontSize={"4xl"} delay={0.2} />
             <AnimatedText text="Full satck  " fontSize={"6xl"} delay={0.3} />
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 flex-wrap ">
               <AnimatedText text="Web " fontSize={"6xl"} delay={0.3} />
               <AnimatedText text="developer " fontSize={"6xl"} delay={0.4} />
             </div>
@@ -90,7 +90,7 @@ const About = () => {
               </motion.div>
             </Link>
           </motion.section>
-          <section className="flex flex-col md:flex-row items-left  md:items-center md:space-x-8 space-y-3 md:space-y-0 py-6 z-30 flex-wrap ">
+          <section className="flex flex-col md:flex-row items-left max-w-[300px] w-full  md:items-center md:space-x-8 space-y-3 md:space-y-0 py-6 z-30 flex-wrap ">
             <motion.button
               whileHover={{
                 scale: 1.1,
@@ -111,7 +111,7 @@ const About = () => {
                 whileHover={{
                   scale: 1.1,
                 }}
-                className=" relative z-10 px-4 py-2 w-full text-sm rounded border-sky-500 bg-sky-500 text-white hover:bg-black hover:text-white delay-100 transition-all "
+                className=" relative z-10 px-4 py-2  w-full text-sm rounded border-sky-500 bg-sky-500 text-white hover:bg-black hover:text-white delay-100 transition-all "
               >
                 resume
               </motion.button>
