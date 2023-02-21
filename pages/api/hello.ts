@@ -8,8 +8,6 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "POST") {
-    console.log(req.body);
-
     const mailOptions = {
       from: req.body.messageInfo.email,
       to: "mouhinemohmade@gmail.com",

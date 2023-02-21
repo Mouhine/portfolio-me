@@ -15,7 +15,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <NavBar />
       </header>
       {isOpen && <ProjectInfo />}
-      <main className="ml-10 md:ml-32">{children}</main>
+      <main className="ml-10 md:ml-32  ">{children}</main>
     </div>
   );
 };

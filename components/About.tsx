@@ -1,19 +1,16 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import AnimatedText from "./AnimatedText";
-import {
-  AiFillGithub,
-  AiFillLinkedin,
-  AiFillTwitterSquare,
-  AiFillCodepenCircle,
-} from "react-icons/ai";
+import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { BsMouse } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { container, item } from "../utils/FramerMotionVariants";
 import { useWindowContext } from "@/context";
+
 import Link from "next/link";
 const About = () => {
-  const { setHomeScrollVaue, homeScrollValue } = useWindowContext();
+  const { setHomeScrollVaue, homeScrollValue, contactScrollValue } =
+    useWindowContext();
   const homeRef = useRef<HTMLDivElement | null>(null);
   const top = homeRef.current?.getBoundingClientRect().height;
   useEffect(() => {
@@ -51,11 +48,14 @@ const About = () => {
           ></motion.div>
         </div>
         <section className="md:col-span-6 col-span-12  place-self-center  ">
-          <section className="text-[60px] ">
+          <section className="text-[60px] leading-[75px]  ">
             <AnimatedText text="Hi,I'am   " fontSize={"3xl"} delay={0} />
             <AnimatedText text="Mohammed " fontSize={"4xl"} delay={0.2} />
             <AnimatedText text="Full satck  " fontSize={"6xl"} delay={0.3} />
-            <AnimatedText text="developer " fontSize={"6xl"} delay={0.4} />
+            <div className="flex items-center space-x-4">
+              <AnimatedText text="Web " fontSize={"6xl"} delay={0.3} />
+              <AnimatedText text="developer " fontSize={"6xl"} delay={0.4} />
+            </div>
           </section>
           <motion.section
             variants={container}
@@ -96,25 +96,26 @@ const About = () => {
                 scale: 1.1,
               }}
               className=" relative z-10 px-4 py-2 text-sm rounded border-sky-500 bg-sky-500 text-white hover:bg-black hover:text-white delay-100 transition-all "
+              onClick={() => {
+                window.scrollTo(0, contactScrollValue * 3);
+              }}
             >
               Contact
             </motion.button>
-            <motion.button
-              whileHover={{
-                scale: 1.1,
-              }}
-              className=" relative z-10 px-4 py-2 text-sm rounded border-sky-500 bg-sky-500 text-white hover:bg-black hover:text-white delay-100 transition-all "
+            <Link
+              href={
+                "https://drive.google.com/file/d/14QBb0McZG93n_pA7P0nfZfQ44lQM0dK-/view?usp=sharing"
+              }
             >
-              resume
-            </motion.button>
-            <motion.button
-              whileHover={{
-                scale: 1.1,
-              }}
-              className="px-4 py-2 text-sm rounded z-10 text-white hover:bg-black hover:text-white delay-100 transition-all border"
-            >
-              Projects
-            </motion.button>
+              <motion.button
+                whileHover={{
+                  scale: 1.1,
+                }}
+                className=" relative z-10 px-4 py-2 w-full text-sm rounded border-sky-500 bg-sky-500 text-white hover:bg-black hover:text-white delay-100 transition-all "
+              >
+                resume
+              </motion.button>
+            </Link>
           </section>
         </section>
         <section className="md:col-span-6 col-span-12 grid place-content-center ">
@@ -122,7 +123,7 @@ const About = () => {
         </section>
       </div>
       <div
-        className="absolute left-1/2 animate-bounce -translate-x-1/2 bottom-8 flex items-center flex-col space-y-2"
+        className="absolute hidden md:flex left-1/2 animate-bounce -translate-x-1/2 bottom-8 flex items-center flex-col space-y-2"
         onClick={() => {
           if (typeof window !== "undefined") {
             window.scrollTo(

@@ -37,7 +37,7 @@ const AnimatedText = ({
       variants={container}
       initial="hidden"
       animate="show"
-      className={`text-${fontSize}`}
+      className="flex "
     >
       {textArr.map((char, i) => {
         return (

@@ -126,9 +126,6 @@ const NavBar = () => {
             whileHover={{ scale: 1.1 }}
             variants={item}
             className="flex items-center space-x-3 cursor-pointer"
-            onClick={() => {
-              window.scrollTo(0, contactScrollValue * 3);
-            }}
           >
             {" "}
             <BsFillArrowDownCircleFill
@@ -137,7 +134,7 @@ const NavBar = () => {
             />{" "}
             <Link
               href={
-                "https://drive.google.com/file/d/1ks-KwyaHUPtHY6STHshWE3IscZBzWwnT/view?usp=sharing"
+                "https://drive.google.com/file/d/14QBb0McZG93n_pA7P0nfZfQ44lQM0dK-/view?usp=sharing"
               }
               target="blank"
             >
@@ -161,12 +158,16 @@ const NavBar = () => {
         } md:flex-row  items-center  md:space-y-0  md:space-x-4`}
       >
         <Link
-          href={"https://www.linkedin.com/in/mohamed-mouhine-956a15221/"}
+          href={" https://github.com/Mouhine"} //https://www.linkedin.com/in/mohamed-mouhine-956a15221/
           target="blank"
         >
           <AiFillGithub size={20} />
         </Link>
-        <Link href={"https://github.com/Mouhine"} target="blank">
+        <Link
+          href={"https://www.linkedin.com/in/mohamed-mouhine-956a15221/"}
+          target="blank"
+        >
+          {" "}
           <AiFillLinkedin size={20} />
         </Link>
       </div>

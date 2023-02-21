@@ -9,7 +9,7 @@ import Contact from "@/components/Contact";
 import { motion } from "framer-motion";
 export default function Home() {
   return (
-    <motion.div>
+    <motion.div className="w-full">
       <About />
       <Projects />
       <Skills />

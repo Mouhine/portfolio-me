@@ -9,6 +9,7 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
   const [Subject, setSubject] = useState("");
+  const [loading, setLoading] = useState(false);
   const contactRef = useRef<HTMLDivElement | null>(null);
   const top = contactRef.current?.getBoundingClientRect().height;
   const { contactScrollValue, setContactScrollVaue } = useWindowContext();
@@ -26,10 +27,12 @@ const Contact = () => {
   };
 
   const sendEmail = async () => {
+    setLoading(true);
     try {
       const response = await axios.post("/api/hello", {
         messageInfo,
       });
+      setLoading(false);
       alert("email sended");
       console.log(response);
     } catch (error) {
@@ -41,7 +44,7 @@ const Contact = () => {
       className="md:h-screen snap-y  py-4 px-4 bg-[#1d1d1d]  grid place-content-center  "
       ref={contactRef}
     >
-      <div className=" text-white flex items-center space-x-2  justify-center font-bold py-4">
+      <div className=" text-white flex items-center space-x-2  justify-center font-bold py-8">
         <AnimatedText text="Get " fontSize="3xl" delay={0.2} />
         <AnimatedText text=" in " fontSize="3xl" delay={0.3} />
         <AnimatedText text=" touch" fontSize="3xl" delay={0.4} />
@@ -55,24 +58,28 @@ const Contact = () => {
               inquiry or contact me throught this emails below
             </p>
           </div>
-          <ul className="space-y-4">
+          <ul className="space-y-4 text-[12px] md:text-sm ">
             <li className="grid grid-cols-12">
-              <span className="text-sky-500 text-xl font-bold col-span-4 ">
+              <span className="text-sky-500 md:text-xl font-bold col-span-4 ">
                 Full Name :
               </span>
-              <span className="col-span-6">Mohammed Mouhine</span>
+              <span className="col-span-6 md:text-lg ">Mohammed Mouhine</span>
             </li>
             <li className="grid grid-cols-12">
-              <span className="text-sky-500 text-xl font-bold col-span-4">
+              <span className="text-sky-500 md:text-xl font-bold col-span-4">
                 Email1 :
               </span>
-              <span className="col-span-6">mouhinemohamed@gmail.com</span>
+              <span className="col-span-6 text-[12px] md:text-lg">
+                mouhinemohamed@gmail.com
+              </span>
             </li>
             <li className="grid grid-cols-12">
-              <span className="text-sky-500 text-xl font-bold col-span-4">
+              <span className="text-sky-500 md:text-xl font-bold col-span-4">
                 Email2 :
               </span>
-              <span className="col-span-6">mouhine2001@outlook.com</span>
+              <span className="col-span-6  text-[12px] md:text-lg">
+                mouhine2001@outlook.com
+              </span>
             </li>
           </ul>
         </div>
@@ -118,7 +125,7 @@ const Contact = () => {
               className="border rounded px-4 py-2 bg-sky-500 "
               onClick={sendEmail}
             >
-              Send Message
+              {loading ? "Loding ..." : "Send Message"}
             </motion.button>
           </div>
         </div>

@@ -47,7 +47,7 @@ const Projects = () => {
       ref={ref}
       className=" snap-y px-4  h-full lg:h-screen bg-[#1d1d1d] grid place-content-center"
     >
-      <div className=" font-bold text-center py-6 text-white">
+      <div className=" font-bold text-center py-12 text-white">
         <AnimatedText text="My Projects" delay={0} fontSize="5xl" />
       </div>
 
