@@ -15,6 +15,7 @@ import {
   SiPrisma,
   SiExpress,
   SiFirebase,
+  SiGithub,
 } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 import AnimatedText from "./AnimatedText";
@@ -105,6 +106,10 @@ const Skills = () => {
     {
       name: "Firebase",
       icon: <SiFirebase />,
+    },
+    {
+      name: "Git/Github",
+      icon: <SiGithub />,
     },
   ];
 
