@@ -104,7 +104,7 @@ const About = () => {
             </motion.button>
             <Link
               href={
-                "https://drive.google.com/file/d/14QBb0McZG93n_pA7P0nfZfQ44lQM0dK-/view?usp=sharing"
+                "https://drive.google.com/file/d/1rHcEjTSlEug0OOFUZjbEWlOJoFbkkW9f/view?usp=sharing"
               }
             >
               <motion.button
