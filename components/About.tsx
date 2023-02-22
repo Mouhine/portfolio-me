@@ -25,27 +25,11 @@ const About = () => {
       className="bg-[#1d1d1d] md:h-screen pt-16 md:pt-0 text-white px-4 grid place-content-center   "
     >
       <div className=" relative max-w-6xl grid grid-cols-12 mx-auto">
-        <div className="absolute top-0 left-11">
-          <motion.div
-            drag
-            dragConstraints={homeRef}
-            className="  absolute shadow-md w-[200px] h-[200px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-12 left-[200px]"
-          ></motion.div>
-          <motion.div
-            drag
-            dragConstraints={homeRef}
-            className="  absolute shadow-md w-[150px] h-[150px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-12 left-[150px]"
-          ></motion.div>
-          <motion.div
-            drag
-            dragConstraints={homeRef}
-            className="  absolute shadow-md w-[100px] h-[100px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-6 left-[300px]"
-          ></motion.div>
-          <motion.div
-            drag
-            dragConstraints={homeRef}
-            className="  absolute shadow-md w-[50px] h-[50px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-4 left-[350px]"
-          ></motion.div>
+        <div className="absolute top-0 left-0">
+          <motion.div className="  absolute shadow-md w-[200px] h-[200px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-12 md:left-[200px]"></motion.div>
+          <motion.div className="  absolute shadow-md w-[150px] h-[150px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-12 md:left-[150px]"></motion.div>
+          <motion.div className="  absolute shadow-md w-[100px] h-[100px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-6 md:left-[300px]"></motion.div>
+          <motion.div className="  absolute shadow-md w-[50px] h-[50px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-4 left-md:[350px] left-[120px]"></motion.div>
         </div>
         <section className="md:col-span-6 col-span-12  place-self-center  ">
           <section className=" text-[50px] md:text-[60px] leading-[75px]  ">
