@@ -48,11 +48,11 @@ const About = () => {
           ></motion.div>
         </div>
         <section className="md:col-span-6 col-span-12  place-self-center  ">
-          <section className="text-[60px] leading-[75px]  ">
+          <section className=" text-[50px] md:text-[60px] leading-[75px]  ">
             <AnimatedText text="Hi,I'am   " fontSize={"3xl"} delay={0} />
             <AnimatedText text="Mohammed" fontSize={"4xl"} delay={0.2} />
             <AnimatedText text="Full satck  " fontSize={"6xl"} delay={0.3} />
-            <div className="flex items-center space-x-4 flex-wrap ">
+            <div className="flex items-center space-x-0 md:space-x-4 flex-wrap ">
               <AnimatedText text="Web " fontSize={"6xl"} delay={0.3} />
               <AnimatedText text="developer " fontSize={"6xl"} delay={0.4} />
             </div>
