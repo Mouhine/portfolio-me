@@ -107,10 +107,6 @@ const Skills = () => {
       name: "Firebase",
       icon: <SiFirebase />,
     },
-    {
-      name: "Git/Github",
-      icon: <SiGithub />,
-    },
   ];
 
   return (
