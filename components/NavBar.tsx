@@ -1,20 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { MdContactMail } from "react-icons/md";
-import { SiAboutdotme } from "react-icons/si";
-import { GiSkills } from "react-icons/gi";
-import { AiFillGithub, AiFillLinkedin, AiOutlineProject } from "react-icons/ai";
+import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { useWindowContext } from "@/context";
-import { BsFillArrowDownCircleFill } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 import Link from "next/link";
+import SocialMedia from "./SocialMedia";
 const NavBar = () => {
   const {
     skillsScrollValue,
     projectsScrollValue,
     contactScrollValue,
     homeScrollValue,
+    setIsNavOpen,
   } = useWindowContext();
   useEffect(() => {
     console.log(
@@ -43,29 +41,27 @@ const NavBar = () => {
 
   return (
     <motion.nav
-      className={`bg-[#1d1d1d] ${
-        expand ? "w-36" : "w-10"
-      } font-mono px-2 bg-[#1d1d1d]  z-50 text-white h-screen   md:w-32  fixed inset-0 border-r flex flex-col items-center justify-between `}
+      className={` font-mono px-2 bg-[#1d1d1d] mx-auto  z-40 text-white h-[8vh] max-w-6xl w-full   fixed inset-0 border-b flex  items-center justify-between `}
     >
-      <div className="text-center space-y-4 font-mono text-sm mx-4">
+      <div className="text-center space-y-4 font-mono text-sm   mx-4">
         <h1 className="text-2xl font-bold flex  ">
           <div
             className="pt-1 md:hidden cursor-pointer "
-            onClick={() => setExpand((v) => !v)}
+            onClick={() => setIsNavOpen(true)}
           >
             <FaBars className="ml-1" />
           </div>
-          <span className={` ${expand ? "block" : "hidden"}   md:block`}>
-            Mouhine
-          </span>
         </h1>
+        <div className=" pb-4 hidden md:block ">
+          <img src="/Logo2.svg" alt="" className="h-[40px] w-[40px] " />
+        </div>
       </div>
-      <div className="text-sm font-sans ">
+      <div className="text-sm font-sans flex space-x-4 ">
         <motion.ul
           variants={container}
           initial="hidden"
           animate="show"
-          className="flex flex-col space-y-4 text-[#f2f7fd]  "
+          className="  items-center space-x-6 hidden md:flex  text-[#f2f7fd]  "
         >
           <motion.li
             variants={item}
@@ -75,10 +71,7 @@ const NavBar = () => {
               window.scrollTo(0, 0);
             }}
           >
-            <SiAboutdotme size={18} />
-            <span className={` ${expand ? "block" : "hidden"}   md:block`}>
-              About
-            </span>
+            <span className="">About</span>
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.2 }}
@@ -89,10 +82,7 @@ const NavBar = () => {
             }}
           >
             {" "}
-            <AiOutlineProject size={18} />{" "}
-            <span className={` ${expand ? "block" : "hidden"}   md:block`}>
-              Projects
-            </span>
+            <span className="">Projects</span>
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.2 }}
@@ -103,10 +93,7 @@ const NavBar = () => {
             }}
           >
             {" "}
-            <GiSkills size={18} />{" "}
-            <span className={` ${expand ? "block" : "hidden"}   md:block`}>
-              Skills
-            </span>
+            <span className="">Skills</span>
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.2 }}
@@ -117,10 +104,7 @@ const NavBar = () => {
             }}
           >
             {" "}
-            <MdContactMail size={18} />{" "}
-            <span className={` ${expand ? "block" : "hidden"}   md:block`}>
-              Contact
-            </span>
+            <span className="">Contact</span>
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.1 }}
@@ -128,49 +112,18 @@ const NavBar = () => {
             className="flex items-center space-x-3 cursor-pointer"
           >
             {" "}
-            <BsFillArrowDownCircleFill
-              size={18}
-              className="animate-bounce"
-            />{" "}
             <Link
               href={
                 "https://drive.google.com/file/d/1rHcEjTSlEug0OOFUZjbEWlOJoFbkkW9f/view?usp=sharing"
               }
               target="blank"
             >
-              <span
-                className={` ${
-                  expand ? "block" : "hidden"
-                }   md:block text-[10px] `}
-              >
-                {" "}
-                Download Cv
-              </span>
+              <span> Download Cv</span>
             </Link>
           </motion.li>
         </motion.ul>
       </div>
-      <div
-        className={`py-4 flex ${
-          expand
-            ? "flex-row space-x-4 space-y-0 "
-            : "flex-col space-x-0 space-y-4"
-        } md:flex-row  items-center  md:space-y-0  md:space-x-4`}
-      >
-        <Link
-          href={" https://github.com/Mouhine"} //https://www.linkedin.com/in/mohamed-mouhine-956a15221/
-          target="blank"
-        >
-          <AiFillGithub size={20} />
-        </Link>
-        <Link
-          href={"https://www.linkedin.com/in/mohamed-mouhine-956a15221/"}
-          target="blank"
-        >
-          {" "}
-          <AiFillLinkedin size={20} />
-        </Link>
-      </div>
+      <SocialMedia />
     </motion.nav>
   );
 };

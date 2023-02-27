@@ -22,9 +22,9 @@ const About = () => {
   return (
     <div
       ref={homeRef}
-      className="bg-[#1d1d1d] md:h-screen pt-16 md:pt-0 text-white px-4 grid place-content-center   "
+      className="bg-[#1d1d1d] md:h-screen pt-[80px] md:pt-0 text-white px-4 grid place-content-center   "
     >
-      <div className=" relative max-w-6xl grid grid-cols-12 mx-auto">
+      <div className=" relative max-w-6xl w-full grid grid-cols-12 mx-auto">
         <div className="absolute top-0 left-0">
           <motion.div className="  absolute shadow-md w-[200px] h-[200px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-12 md:left-[200px]"></motion.div>
           <motion.div className="  absolute shadow-md w-[150px] h-[150px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-12 md:left-[150px]"></motion.div>
@@ -32,7 +32,7 @@ const About = () => {
           <motion.div className="  absolute shadow-md w-[50px] h-[50px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-4 left-md:[350px] left-[120px]"></motion.div>
         </div>
         <section className="md:col-span-6 col-span-12  place-self-center  ">
-          <section className=" text-[50px] md:text-[60px] leading-[75px]  ">
+          <section className=" text-[50px] md:text-[60px] leading-[70px]  ">
             <AnimatedText text="Hi,I'am   " fontSize={"3xl"} delay={0} />
             <AnimatedText text="Mohammed" fontSize={"4xl"} delay={0.2} />
             <AnimatedText text="Front End   " fontSize={"6xl"} delay={0.3} />

@@ -112,14 +112,15 @@ const Skills = () => {
   return (
     <div
       ref={skillsRef}
-      className=" snap-y h-full  lg:h-screen bg-[#1d1d1d] grid place-content-center font-mono"
+      className="  mx-auto  max-w-6xl px-4 h-full lg:h-screen bg-[#1d1d1d] grid place-content-center font-mono"
     >
-      <div className=" font-bold text-center py-6 text-white">
-        <AnimatedText text="My Skills" delay={0} fontSize="5xl" />
+      <div className=" font-bold text-center flex items-center space-x-2 text-[30px] md:text-[40px] py-6 text-white">
+        <AnimatedText text="My" delay={0} fontSize="5xl" />
+        <AnimatedText text=" Skills" delay={0} fontSize="5xl" />
       </div>
       <section className="max-w-5xl grid grid-cols-12 ">
         <div className=" col-span-12 md:col-span-6 flex flex-col gap-5  ">
-          <h1 className="md:text-center text-3xl text-white font-bold ">
+          <h1 className="md:text-center text-2xl text-white font-bold ">
             Frontend Skills
           </h1>
           <section className="flex flex-wrap">
@@ -137,7 +138,7 @@ const Skills = () => {
           </section>
         </div>
         <div className=" col-span-12 md:col-span-6 ">
-          <h1 className="md:text-center text-white font-bold text-3xl">
+          <h1 className="md:text-center text-white font-bold text-2xl">
             Backend Skills
           </h1>
           <section className="flex md:h-[100px] flex-wrap">

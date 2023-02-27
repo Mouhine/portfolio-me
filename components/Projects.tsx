@@ -45,10 +45,12 @@ const Projects = () => {
   return (
     <div
       ref={ref}
-      className=" snap-y px-4  h-full lg:h-screen bg-[#1d1d1d] grid place-content-center"
+      id="projects"
+      className="  mx-auto  max-w-6xl px-8 h-full lg:h-screen bg-[#1d1d1d] grid place-content-center"
     >
-      <div className=" font-bold text-center py-12 text-white">
-        <AnimatedText text="My Projects" delay={0} fontSize="5xl" />
+      <div className=" font-bold text-center py-12 text-[30px] flex items-center space-x-3 md:text-[40px] text-white">
+        <AnimatedText text="My" delay={0} fontSize="5xl" />
+        <AnimatedText text="Projects" delay={0} fontSize="5xl" />
       </div>
 
       <section className=" max-w-5xl  mx-auto grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6 ">

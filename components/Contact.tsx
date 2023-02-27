@@ -44,7 +44,7 @@ const Contact = () => {
       className="md:h-screen snap-y  py-4 px-4 bg-[#1d1d1d]  grid place-content-center  "
       ref={contactRef}
     >
-      <div className=" text-white flex items-center space-x-2  justify-center font-bold py-8">
+      <div className=" text-white text-[30px] md:text-[40px] flex items-center space-x-2   font-bold py-8">
         <AnimatedText text="Get " fontSize="3xl" delay={0.2} />
         <AnimatedText text=" in " fontSize="3xl" delay={0.3} />
         <AnimatedText text=" touch" fontSize="3xl" delay={0.4} />
@@ -58,26 +58,19 @@ const Contact = () => {
               inquiry or contact me throught this emails below
             </p>
           </div>
-          <ul className="space-y-4 text-[12px] md:text-sm ">
+          <ul className="space-y-4 text-[14px] md:text-sm ">
             <li className="grid grid-cols-12">
               <span className="text-sky-500 md:text-xl font-bold col-span-4 ">
                 Full Name :
               </span>
               <span className="col-span-6 md:text-lg ">Mohammed Mouhine</span>
             </li>
+
             <li className="grid grid-cols-12">
               <span className="text-sky-500 md:text-xl font-bold col-span-4">
-                Email1 :
+                Email :
               </span>
-              <span className="col-span-6 text-[12px] md:text-lg">
-                mouhinemohamed@gmail.com
-              </span>
-            </li>
-            <li className="grid grid-cols-12">
-              <span className="text-sky-500 md:text-xl font-bold col-span-4">
-                Email2 :
-              </span>
-              <span className="col-span-6  text-[12px] md:text-lg">
+              <span className="col-span-6  text-[14px] md:text-lg">
                 mouhine2001@outlook.com
               </span>
             </li>
