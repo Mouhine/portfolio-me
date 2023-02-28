@@ -41,7 +41,7 @@ const NavBar = () => {
 
   return (
     <motion.nav
-      className={` font-mono px-2 bg-[#1d1d1d] mx-auto  z-40 text-white h-[8vh] max-w-6xl w-full   fixed inset-0 border-b flex  items-center justify-between `}
+      className={` font-mono px-2 bg-[#1d1d1d] mx-auto  z-40 text-white h-[6vh] max-w-6xl w-full   fixed inset-0 border-b flex  items-center justify-between `}
     >
       <div className="text-center space-y-4 font-mono text-sm   mx-4">
         <h1 className="text-2xl font-bold flex  ">
@@ -53,7 +53,7 @@ const NavBar = () => {
           </div>
         </h1>
         <div className=" pb-4 hidden md:block ">
-          <img src="/Logo2.svg" alt="" className="h-[40px] w-[40px] " />
+          <img src="/Logo2.svg" alt="" className="h-[30px] w-[30px] " />
         </div>
       </div>
       <div className="text-sm font-sans flex space-x-4 ">
