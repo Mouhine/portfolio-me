@@ -8,7 +8,7 @@ import { container, item } from "../utils/FramerMotionVariants";
 import { useWindowContext } from "@/context";
 
 import Link from "next/link";
-const About = () => {
+const HomePage = () => {
   const { setHomeScrollVaue, homeScrollValue, contactScrollValue } =
     useWindowContext();
   const homeRef = useRef<HTMLDivElement | null>(null);
@@ -31,11 +31,15 @@ const About = () => {
           <motion.div className="  absolute shadow-md w-[100px] h-[100px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-6 md:left-[300px]"></motion.div>
           <motion.div className="  absolute shadow-md w-[50px] h-[50px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-4 left-md:[350px] left-[120px]"></motion.div>
         </div>
+
         <section className="md:col-span-6 col-span-12  place-self-center  ">
           <section className=" text-[50px] md:text-[60px] leading-[70px]  ">
             <AnimatedText text="Hi,I'am   " fontSize={"3xl"} delay={0} />
             <AnimatedText text="Mohammed" fontSize={"4xl"} delay={0.2} />
-            <AnimatedText text="Front End   " fontSize={"6xl"} delay={0.3} />
+            <div className="flex space-x-4">
+              <AnimatedText text="Full   " fontSize={"6xl"} delay={0.3} />
+              <AnimatedText text=" Stack " fontSize={"6xl"} delay={0.3} />
+            </div>
             <div className="flex items-center space-x-0 md:space-x-4 flex-wrap ">
               <AnimatedText text="Web " fontSize={"6xl"} delay={0.3} />
               <AnimatedText text="developer " fontSize={"6xl"} delay={0.4} />
@@ -60,7 +64,7 @@ const About = () => {
             </Link>
 
             <Link
-              href={"https://www.linkedin.com/in/mohamed-mouhine-956a15221/"}
+              href={"https://www.linkedin.com/in/mohammed-mouhine-956a15221/"}
               target="blank"
             >
               <motion.div
@@ -88,7 +92,7 @@ const About = () => {
             </motion.button>
             <Link
               href={
-                "https://drive.google.com/file/d/1rHcEjTSlEug0OOFUZjbEWlOJoFbkkW9f/view?usp=sharing"
+                "https://drive.google.com/file/d/1ks-KwyaHUPtHY6STHshWE3IscZBzWwnT/view?usp=sharing"
               }
             >
               <motion.button
@@ -102,6 +106,7 @@ const About = () => {
             </Link>
           </section>
         </section>
+
         <section className="md:col-span-6 col-span-12 grid place-content-center ">
           <img src="/bg.png" alt="" />
         </section>
@@ -124,4 +129,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default HomePage;

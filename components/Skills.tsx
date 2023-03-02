@@ -19,6 +19,7 @@ import {
 } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 import AnimatedText from "./AnimatedText";
+import { motion } from "framer-motion";
 const Skills = () => {
   const skillsRef = useRef<HTMLDivElement | null>(null);
   const top = skillsRef.current?.getBoundingClientRect().height;
@@ -112,7 +113,7 @@ const Skills = () => {
   return (
     <div
       ref={skillsRef}
-      className="  mx-auto  max-w-6xl px-4 h-full lg:h-screen bg-[#1d1d1d] grid place-content-center font-mono"
+      className="  mx-auto  max-w-6xl px-4 h-full  bg-[#1d1d1d] grid place-content-center font-mono"
     >
       <div className=" font-bold text-center flex items-center space-x-2 text-[30px] md:text-[40px] py-6 text-white">
         <AnimatedText text="My" delay={0} fontSize="5xl" />
@@ -126,13 +127,15 @@ const Skills = () => {
           <section className="flex flex-wrap">
             {FrontendSkills.map((skill, i) => {
               return (
-                <div
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   key={i}
                   className={`flex items-center m-2 space-x-3 px-4 py-2 rounded bg-white shadow`}
                 >
                   {skill.icon}
                   <p>{skill.name}</p>
-                </div>
+                </motion.div>
               );
             })}
           </section>
@@ -144,13 +147,15 @@ const Skills = () => {
           <section className="flex md:h-[100px] flex-wrap">
             {BackendSkills.map((skill, i) => {
               return (
-                <div
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   key={i}
                   className={`flex items-center m-2 space-x-3 px-4 py-2 h-12 rounded bg-white shadow`}
                 >
                   {skill.icon}
                   <p>{skill.name}</p>
-                </div>
+                </motion.div>
               );
             })}
           </section>

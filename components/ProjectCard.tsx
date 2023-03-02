@@ -50,7 +50,7 @@ const ProjectCard = ({ project }: projectsProps) => {
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
     >
-      <div className="h-full rounded-lg overflow-hidden">
+      <div className="h-full rounded shadow overflow-hidden">
         <img
           src={urlFor(project.cover)}
           alt=""

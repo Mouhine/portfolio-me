@@ -45,7 +45,7 @@ const MobileNavBar = () => {
           <li onClick={handleClose}>
             <Link
               href={
-                "https://drive.google.com/file/d/1rHcEjTSlEug0OOFUZjbEWlOJoFbkkW9f/view?usp=sharing"
+                "https://drive.google.com/file/d/1ks-KwyaHUPtHY6STHshWE3IscZBzWwnT/view?usp=sharing"
               }
               target="blank"
               className="flex items-center space-x-4"

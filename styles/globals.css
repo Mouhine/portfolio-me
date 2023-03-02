@@ -1,14 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
 * {
   font-weight: 400;
   letter-spacing: 2px;
 }
 html {
   scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
 }
 .styledFont {
-  font-family: "Pacifico", cursive;
+  font-family: "Poppins", sans-serif;
 }

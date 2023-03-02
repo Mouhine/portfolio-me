@@ -41,9 +41,9 @@ const NavBar = () => {
 
   return (
     <motion.nav
-      className={` font-mono px-2 bg-[#1d1d1d] mx-auto  z-40 text-white h-[6vh] max-w-6xl w-full   fixed inset-0 border-b flex  items-center justify-between `}
+      className={`  px-2 bg-[#1d1d1d] mx-auto  z-40 text-white h-[6vh] max-w-6xl w-full   fixed inset-0 border-b flex  items-center justify-between `}
     >
-      <div className="text-center space-y-4 font-mono text-sm   mx-4">
+      <div className="text-center space-y-4  text-sm   mx-4">
         <h1 className="text-2xl font-bold flex  ">
           <div
             className="pt-1 md:hidden cursor-pointer "
@@ -53,10 +53,10 @@ const NavBar = () => {
           </div>
         </h1>
         <div className=" pb-4 hidden md:block ">
-          <img src="/Logo2.svg" alt="" className="h-[30px] w-[30px] " />
+          <img src="/Logo2.svg" alt="logo" className="h-[30px] w-[30px] " />
         </div>
       </div>
-      <div className="text-sm font-sans flex space-x-4 ">
+      <div className="text-sm  flex space-x-4 ">
         <motion.ul
           variants={container}
           initial="hidden"
@@ -71,7 +71,7 @@ const NavBar = () => {
               window.scrollTo(0, 0);
             }}
           >
-            <span className="">About</span>
+            <span className="">Home</span>
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.2 }}
@@ -82,6 +82,17 @@ const NavBar = () => {
             }}
           >
             {" "}
+            <span className="">About Me</span>
+          </motion.li>
+          <motion.li
+            whileHover={{ scale: 1.2 }}
+            variants={item}
+            className="flex items-center space-x-3  cursor-pointer "
+            onClick={() => {
+              window.scrollTo(homeScrollValue, projectsScrollValue * 2);
+            }}
+          >
+            {" "}
             <span className="">Projects</span>
           </motion.li>
           <motion.li
@@ -89,7 +100,7 @@ const NavBar = () => {
             variants={item}
             className="flex items-center space-x-3  cursor-pointer "
             onClick={() => {
-              window.scrollTo(0, skillsScrollValue * 2);
+              window.scrollTo(0, skillsScrollValue * 5);
             }}
           >
             {" "}
@@ -100,7 +111,7 @@ const NavBar = () => {
             variants={item}
             className="flex items-center space-x-3 cursor-pointer"
             onClick={() => {
-              window.scrollTo(0, contactScrollValue * 3);
+              window.scrollTo(0, contactScrollValue * 5);
             }}
           >
             {" "}
@@ -114,7 +125,7 @@ const NavBar = () => {
             {" "}
             <Link
               href={
-                "https://drive.google.com/file/d/1rHcEjTSlEug0OOFUZjbEWlOJoFbkkW9f/view?usp=sharing"
+                "https://drive.google.com/file/d/1ks-KwyaHUPtHY6STHshWE3IscZBzWwnT/view?usp=sharing"
               }
               target="blank"
             >
