@@ -73,6 +73,7 @@ const Contact = () => {
             <motion.li
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
+              className="p-3 border rounded"
             >
               <span className="text-sky-500 md:text-xl font-bold  ">
                 Full Name :
@@ -85,17 +86,19 @@ const Contact = () => {
             <motion.li
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
+              className="p-3 border rounded"
             >
               <span className="text-sky-500 md:text-xl font-bold ">
                 Email :
               </span>
-              <span className=" pl-5 text-[14px] md:text-lg">
+              <span className=" pl-2 text-[14px] md:text-lg">
                 mouhine2001@outlook.com
               </span>
             </motion.li>
             <motion.li
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
+              className="p-3 border rounded"
             >
               <span className="text-sky-500 md:text-xl font-bold  ">
                 Github :
@@ -111,6 +114,7 @@ const Contact = () => {
             <motion.li
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
+              className="p-3 border rounded"
             >
               <span className="text-sky-500 md:text-xl font-bold  ">
                 LinkedIn :
@@ -160,7 +164,7 @@ const Contact = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               cols={30}
-              rows={10}
+              rows={9}
               placeholder="Message"
               className="w-full px-2 py-2 rounded outline-none border bg-[#2b2b2b] "
               value={message}

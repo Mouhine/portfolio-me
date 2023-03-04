@@ -30,6 +30,7 @@ const Skills = () => {
       console.log(skillsScrollValue);
     }
   }, [skillsScrollValue]);
+  
   const FrontendSkills = [
     {
       name: "HTML",
