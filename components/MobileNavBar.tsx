@@ -14,7 +14,7 @@ const MobileNavBar = () => {
     setIsNavOpen(false);
   };
   return (
-    <motion.div className="fixed inset-0 w-1/2  bg-[#1d1d1d] text-white h-screen  z-50 ">
+    <motion.div className="fixed inset-0 w-1/2   text-secondary h-screen  z-50 ">
       <div className=" flex  justify-end p-4 ">
         <button onClick={handleClose}>
           <AiOutlineCloseCircle size={28} />

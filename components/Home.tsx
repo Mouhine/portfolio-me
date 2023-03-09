@@ -5,33 +5,17 @@ import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { BsMouse } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { container, item } from "../utils/FramerMotionVariants";
-import { useWindowContext } from "@/context";
 
 import Link from "next/link";
 const HomePage = () => {
-  const { setHomeScrollVaue, homeScrollValue, contactScrollValue } =
-    useWindowContext();
   const homeRef = useRef<HTMLDivElement | null>(null);
-  const top = homeRef.current?.getBoundingClientRect().height;
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setHomeScrollVaue(top as number);
-      console.log(homeScrollValue);
-    }
-  }, [homeScrollValue]);
+
   return (
     <div
       ref={homeRef}
-      className="bg-[#1d1d1d] md:h-screen pt-[80px] md:pt-0 text-white px-4 grid place-content-center   "
+      className=" md:h-screen pt-[80px] md:pt-0 relative text-white px-4 grid place-content-center   "
     >
       <div className=" relative max-w-6xl w-full grid grid-cols-12 mx-auto">
-        <div className="absolute top-0 left-0">
-          <motion.div className="  absolute shadow-md w-[200px] h-[200px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-12 md:left-[200px]"></motion.div>
-          <motion.div className="  absolute shadow-md w-[150px] h-[150px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-12 md:left-[150px]"></motion.div>
-          <motion.div className="  absolute shadow-md w-[100px] h-[100px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-6 md:left-[300px]"></motion.div>
-          <motion.div className="  absolute shadow-md w-[50px] h-[50px] rounded-full bg-gradient-to-r from-purple-500 to-pink-500 top-4 left-md:[350px] left-[120px]"></motion.div>
-        </div>
-
         <section className="md:col-span-6 col-span-12  place-self-center  ">
           <section className=" text-[50px] md:text-[60px] leading-[70px]  ">
             <AnimatedText text="Hi,I'am   " fontSize={"3xl"} delay={0} />
@@ -57,7 +41,7 @@ const HomePage = () => {
                 whileHover={{
                   scale: 1.1,
                 }}
-                className="p-1 rounded-full border bg-[#205295]"
+                className="p-1 rounded-full border bg-tertiary"
               >
                 <AiFillGithub size={24} />
               </motion.div>
@@ -72,7 +56,7 @@ const HomePage = () => {
                 whileHover={{
                   scale: 1.1,
                 }}
-                className="p-1 rounded-full border bg-[#205295]"
+                className="p-1 rounded-full border bg-tertiary"
               >
                 <AiFillLinkedin size={24} />
               </motion.div>
@@ -83,12 +67,11 @@ const HomePage = () => {
               whileHover={{
                 scale: 1.1,
               }}
-              className=" relative z-10 px-4 py-2 text-sm rounded border-sky-500 bg-sky-500 text-white hover:bg-black hover:text-white delay-100 transition-all "
-              onClick={() => {
-                window.scrollTo(0, contactScrollValue * 3);
-              }}
+              className=" relative z-10 px-4 py-2 text-sm rounded bg-tertiary shadow-md text-white hover:bg-black hover:text-white delay-100 transition-all "
             >
-              Contact
+              <Link href="/Contact">
+                <span> Contact</span>
+              </Link>
             </motion.button>
             <Link
               href={
@@ -99,7 +82,7 @@ const HomePage = () => {
                 whileHover={{
                   scale: 1.1,
                 }}
-                className=" relative z-10 px-4 py-2  w-full text-sm rounded border-sky-500 bg-sky-500 text-white hover:bg-black hover:text-white delay-100 transition-all "
+                className=" relative z-10 px-4 py-2  w-full text-sm rounded bg-tertiary shadow-md text-white hover:bg-black hover:text-white delay-100 transition-all "
               >
                 resume
               </motion.button>
@@ -112,7 +95,7 @@ const HomePage = () => {
         </section>
       </div>
       <div
-        className="absolute hidden md:flex left-1/2 animate-bounce -translate-x-1/2 bottom-8 flex items-center flex-col space-y-2"
+        className="absolute hidden md:flex left-1/2 animate-bounce -translate-x-1/2 bottom-8  items-center flex-col space-y-2"
         onClick={() => {
           if (typeof window !== "undefined") {
             window.scrollTo(

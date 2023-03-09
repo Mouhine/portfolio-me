@@ -1,43 +1,125 @@
+//@ts-nocheck
 import Image from "next/image";
 import React from "react";
 import AnimatedText from "./AnimatedText";
 import { motion } from "framer-motion";
-const AboutMe = () => {
-  return (
-    <div className=" max-w-5xl mx-auto items-center flex flex-col md:flex-row px-6 gap-6 ">
-      <motion.div
-        className="text-white md:w-1/2"
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-      >
-        <div className="flex space-x-2 text-[30px]  md:text-[40px] py-8 ">
-          <AnimatedText text="How" fontSize="6xl" delay={0.2} />
-          <AnimatedText text=" Am" fontSize="6xl" delay={0.2} />
-          <AnimatedText text="  I" fontSize="6xl" delay={0.2} />
-        </div>
-        <p>
-          Hi, my name is MOHAMMED MOUHINE, I am a Full Stack web developer, I
-          dedicated myself for the past 2 years to learn and master the art of
-          coding and through this journey I chose to go with web development, I
-          have always been interested in IT domain since a very young age so i
-          decided to teach myself while working a full time job , I am a very
-          responsible person, and I am very confident that i can get the job
-          done fell free to check my projects for more reliability,
-        </p>
-      </motion.div>
+import { fadeIn, textVariant } from "@/utils/motion";
+import { styles } from "@/utils/styles";
+import Tilt from "react-tilt";
+import {
+  mobile,
+  backend,
+  creator,
+  web,
+  javascript,
+  typescript,
+  html,
+  css,
+  reactjs,
+  redux,
+  tailwind,
+  nodejs,
+  mongodb,
+  git,
+  figma,
+  docker,
+  meta,
+  starbucks,
+  tesla,
+  shopify,
+  carrent,
+  jobit,
+  tripguide,
+  threejs,
+} from "../assets";
 
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
+const ServiceCard = ({ index, title, icon }) => (
+  <Tilt className="xs:w-[250px] w-full">
+    <motion.div
+      variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+      className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
+    >
+      <div
+        options={{
+          max: 45,
+          scale: 1,
+          speed: 450,
+        }}
+        className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
       >
         <Image
-          src={"/about.svg"}
-          height={600}
-          width={600}
-          alt="about me logo"
+          src={icon}
+          alt="web-development"
+          className="w-16 h-16 object-contain"
         />
-      </motion.div>
-    </div>
+
+        <h3 className="text-white text-[20px] font-bold text-center">
+          {title}
+        </h3>
+      </div>
+    </motion.div>
+  </Tilt>
+);
+
+const AboutMe = () => {
+  const services = [
+    {
+      title: "Full Stack Developer",
+      icon: web,
+    },
+
+    {
+      title: "Backend Developer",
+      icon: backend,
+    },
+    {
+      title: "Front End Developer",
+      icon: creator,
+    },
+  ];
+  return (
+    <section className="max-w-5xl  mx-auto py-6">
+      <div className=" max-w-5xl mx-auto items-center flex flex-col md:flex-row px-6 gap-6 ">
+        <motion.div
+          className="text-white md:w-1/2"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+        >
+          <motion.div variants={textVariant()}>
+            <p className={styles.sectionSubText}>Introduction</p>
+            <h2 className={styles.sectionHeadText}>Overview.</h2>
+          </motion.div>
+          <p className="text-secondary">
+            {`  I'm a skilled software developer with experience in TypeScript and
+            JavaScript, and expertise in frameworks like React, Node.js, and
+            Next.js. I'm a quick learner and collaborate closely with clients
+            to create efficient, scalable, and user-friendly solutions that
+            solve real-world problems. Let's work together to bring your ideas
+            to life!`}
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+        >
+          <Image
+            src={"/about.svg"}
+            height={600}
+            width={600}
+            alt="about me logo"
+          />
+        </motion.div>
+      </div>
+
+      <div className="max-w-5xl mx-auto flex justify-center">
+        <div className="mt-8 flex  flex-wrap gap-6">
+          {services.map((service, index) => (
+            <ServiceCard key={service.title} index={index} {...service} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

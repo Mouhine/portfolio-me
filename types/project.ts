@@ -9,6 +9,7 @@ export interface Project {
   github: string;
   live: string;
   title: string;
+  tags: String[];
 }
 
 export interface Cover {

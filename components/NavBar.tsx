@@ -7,21 +7,8 @@ import { FaBars } from "react-icons/fa";
 import Link from "next/link";
 import SocialMedia from "./SocialMedia";
 const NavBar = () => {
-  const {
-    skillsScrollValue,
-    projectsScrollValue,
-    contactScrollValue,
-    homeScrollValue,
-    setIsNavOpen,
-  } = useWindowContext();
-  useEffect(() => {
-    console.log(
-      skillsScrollValue,
-      projectsScrollValue,
-      contactScrollValue,
-      homeScrollValue
-    );
-  });
+  const { setIsNavOpen } = useWindowContext();
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -37,11 +24,10 @@ const NavBar = () => {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0 },
   };
-  const [expand, setExpand] = useState(false);
 
   return (
     <motion.nav
-      className={`  px-2 bg-[#1d1d1d] mx-auto  z-40 text-white h-[6vh] max-w-6xl w-full   fixed inset-0 border-b flex  items-center justify-between `}
+      className={`  px-2 py-4 mx-auto  z-40 text-white h-[6vh] max-w-6xl w-full   fixed inset-0  flex bg-[#050816] items-center justify-between `}
     >
       <div className="text-center space-y-4  text-sm   mx-4">
         <h1 className="text-2xl font-bold flex  ">
@@ -67,55 +53,50 @@ const NavBar = () => {
             variants={item}
             whileHover={{ scale: 1.2 }}
             className="flex items-center space-x-3  cursor-pointer"
-            onClick={() => {
-              window.scrollTo(0, 0);
-            }}
           >
-            <span className="">Home</span>
+            <Link href="/">
+              <span className="">Home</span>
+            </Link>
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.2 }}
             variants={item}
             className="flex items-center space-x-3  cursor-pointer "
-            onClick={() => {
-              window.scrollTo(homeScrollValue, projectsScrollValue);
-            }}
           >
             {" "}
-            <span className="">About Me</span>
+            <Link href="/About">
+              <span className="">About Me</span>
+            </Link>
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.2 }}
             variants={item}
             className="flex items-center space-x-3  cursor-pointer "
-            onClick={() => {
-              window.scrollTo(homeScrollValue, projectsScrollValue * 2);
-            }}
           >
             {" "}
-            <span className="">Projects</span>
+            <Link href="/Projects">
+              <span className="">Projects</span>
+            </Link>
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.2 }}
             variants={item}
             className="flex items-center space-x-3  cursor-pointer "
-            onClick={() => {
-              window.scrollTo(0, skillsScrollValue * 5);
-            }}
           >
             {" "}
-            <span className="">Skills</span>
+            <Link href="/Skills">
+              <span className="">Skills</span>
+            </Link>
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.2 }}
             variants={item}
             className="flex items-center space-x-3 cursor-pointer"
-            onClick={() => {
-              window.scrollTo(0, contactScrollValue * 5);
-            }}
           >
             {" "}
-            <span className="">Contact</span>
+            <Link href="/Contact">
+              <span className="">Contact</span>
+            </Link>
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.1 }}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import NavBar from "./NavBar";
 import { useWindowContext } from "@/context";
 import ProjectInfo from "./ProjectInfo";
@@ -11,7 +11,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     }
   }, []);
   return (
-    <div className="bg-[#1d1d1d] ">
+    <div className="bg-[#050816]">
       {isNavOpen && <MobileNavBar />}
       <header>
         <NavBar />

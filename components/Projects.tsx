@@ -1,4 +1,6 @@
+//@ts-nocheck
 "use client";
+
 import React from "react";
 import { useRef, useState, useEffect } from "react";
 import { useWindowContext } from "@/context";
@@ -7,16 +9,11 @@ import ProjectCard from "./ProjectCard";
 import AnimatedText from "./AnimatedText";
 import client, { urlFor } from "../utils/client";
 import { Project } from "@/types/project";
+import { textVariant } from "@/utils/motion";
+import { styles } from "@/utils/styles";
+import { motion } from "framer-motion";
 const Projects = () => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const top = ref.current?.getBoundingClientRect().height;
   const [projects, setProjects] = useState<Project[] | []>([]);
-  const { projectsScrollValue, setProjectsScrollVaue } = useWindowContext();
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setProjectsScrollVaue(top as number);
-    }
-  }, [projectsScrollValue]);
 
   useEffect(() => {
     const getProjects = async () => {
@@ -26,34 +23,27 @@ const Projects = () => {
     };
     getProjects();
   }, []);
-  const container = {
-    hidden: { opacity: 0, y: 20 },
-    show: {
-      opacity: 1,
-      y: 0,
 
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 100 },
-    show: { opacity: 1, y: 0 },
-  };
   return (
     <div
-      ref={ref}
       id="projects"
-      className="  mx-auto  max-w-6xl px-8 h-full lg:h-screen bg-[#1d1d1d] grid place-content-center"
+      className="  mx-auto mt-12 max-w-6xl px-8 h-full lg:min-h-screen  grid place-content-center"
     >
-      <div className=" font-bold text-center py-12 text-[30px] flex items-center space-x-3 md:text-[40px] text-white">
-        <AnimatedText text="My" delay={0} fontSize="5xl" />
-        <AnimatedText text="Projects" delay={0} fontSize="5xl" />
-      </div>
+      <motion.div
+        className="text-white md:w-[80%] py-5 "
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+      >
+        <motion.div variants={textVariant()}>
+          <p className={`${styles.sectionSubText} `}>My work</p>
+          <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
+        </motion.div>
+        <p className="text-secondary">
+          {`  Following projects showcases my skills and experience through real-world examples of my work. Each project is briefly described with links to code repositories and live demos in it. It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.`}
+        </p>
+      </motion.div>
 
-      <section className=" max-w-5xl  mx-auto grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+      <section className=" max-w-6xl  mx-auto grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6  ">
         {projects.map((project) => {
           return <ProjectCard key={project._id} project={project} />;
         })}

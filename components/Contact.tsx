@@ -1,27 +1,19 @@
+//@ts-nocheck
 import React, { useState, useRef, useEffect } from "react";
-import { FcBusinessContact } from "react-icons/fc";
 import { motion } from "framer-motion";
-import { useWindowContext } from "@/context";
-import AnimatedText from "./AnimatedText";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
+import { textVariant } from "@/utils/motion";
+import { styles } from "@/utils/styles";
 const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
   const [Subject, setSubject] = useState("");
   const [loading, setLoading] = useState(false);
-  const contactRef = useRef<HTMLDivElement | null>(null);
-  const top = contactRef.current?.getBoundingClientRect().height;
-  const { contactScrollValue, setContactScrollVaue } = useWindowContext();
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setContactScrollVaue(top as number);
-      console.log(contactScrollValue);
-    }
-  }, [contactScrollValue]);
+
   const messageInfo = {
     email,
     name,
@@ -46,19 +38,17 @@ const Contact = () => {
       console.log(error);
     }
   };
+
   return (
-    <div
-      className="md:h-screen snap-y  py-4 px-4 bg-[#1d1d1d] max-w-5xl mx-auto  grid place-content-center  "
-      ref={contactRef}
-    >
+    <div className="md:h-screen snap-y  py-4 px-4  max-w-5xl mx-auto  grid place-content-center  ">
       <ToastContainer />
-      <div className=" text-white text-[30px] md:text-[40px] flex items-center space-x-2   font-bold py-8">
-        <AnimatedText text="Get " fontSize="3xl" delay={0.2} />
-        <AnimatedText text=" in " fontSize="3xl" delay={0.3} />
-        <AnimatedText text=" touch" fontSize="3xl" delay={0.4} />
-      </div>
+
       <section className=" grid grid-cols-12 gap-4">
-        <div className=" col-span-12 md:col-span-6 text-white  flex flex-col items-start justify-start space-y-4 ">
+        <div className=" col-span-12 md:col-span-6 text-secondary  flex flex-col items-start justify-start space-y-4 ">
+          <motion.div variants={textVariant()}>
+            <p className={`${styles.sectionSubText} `}>get in touch</p>
+            <h2 className={`${styles.sectionHeadText}`}>Contact.</h2>
+          </motion.div>
           <div className="space-y-3">
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -73,7 +63,7 @@ const Contact = () => {
             <motion.li
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="p-3 border rounded"
+              className="p-3 rounded bg-tertiary shadow-md"
             >
               <span className="text-sky-500 md:text-xl font-bold  ">
                 Full Name :
@@ -86,7 +76,7 @@ const Contact = () => {
             <motion.li
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="p-3 border rounded"
+              className="p-3 rounded bg-tertiary shadow-md "
             >
               <span className="text-sky-500 md:text-xl font-bold ">
                 Email :
@@ -98,7 +88,7 @@ const Contact = () => {
             <motion.li
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="p-3 border rounded"
+              className="p-3 rounded bg-tertiary shadow-md"
             >
               <span className="text-sky-500 md:text-xl font-bold  ">
                 Github :
@@ -114,7 +104,7 @@ const Contact = () => {
             <motion.li
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="p-3 border rounded"
+              className="p-3 rounded bg-tertiary shadow-md"
             >
               <span className="text-sky-500 md:text-xl font-bold  ">
                 LinkedIn :
@@ -129,59 +119,57 @@ const Contact = () => {
             </motion.li>
           </ul>
         </div>
-        <div className=" col-span-12 md:col-span-6 text-white ">
-          <section className="flex items-center space-x-4">
-            <motion.input
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              type="text"
-              placeholder="Name"
-              className="w-full px-2 py-2 rounded outline-none border bg-[#2b2b2b] "
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <motion.input
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              type="email"
-              placeholder="Email"
-              className="w-full px-2 py-2 rounded outline-none border bg-[#2b2b2b] "
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </section>
-          <section className="flex flex-col items-center space-y-4 py-2">
-            <motion.input
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              type="text "
-              placeholder="Subject"
-              className="w-full px-2 py-2 rounded outline-none border bg-[#2b2b2b] "
-              value={Subject}
-              onChange={(e) => setSubject(e.target.value)}
-            />
-            <motion.textarea
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              cols={30}
-              rows={9}
-              placeholder="Message"
-              className="w-full px-2 py-2 rounded outline-none border bg-[#2b2b2b] "
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            ></motion.textarea>
-          </section>
-          <div className="flex items-center justify-center">
+        <div className=" col-span-12 md:col-span-6 text-secondary space-y-4 bg-black-100 p-8 rounded shadow shadow-secondary">
+          <motion.input
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            type="text"
+            placeholder="Name"
+            className="w-full px-4 py-3 rounded outline-none  bg-tertiary "
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <motion.input
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            type="email"
+            placeholder="Email"
+            className="w-full px-4 py-3 rounded outline-none  bg-tertiary "
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <motion.input
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            type="text "
+            placeholder="Subject"
+            className="w-full px-4 py-3 rounded outline-none  bg-tertiary "
+            value={Subject}
+            onChange={(e) => setSubject(e.target.value)}
+          />
+          <motion.textarea
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            cols={30}
+            rows={9}
+            placeholder="Message"
+            className="w-full px-4 py-3 rounded outline-none  bg-tertiary "
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          ></motion.textarea>
+
+          <div className="flex items-center justify-end">
             <motion.button
               whileHover={{
                 scale: 1.1,
               }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="border rounded px-4 py-2 bg-sky-500 "
+              className=" rounded px-4 py-2 bg-tertiary shadow-md "
               onClick={sendEmail}
             >
-              {loading ? "Loding ..." : "Send Message"}
+              {loading ? "Loding ..." : "Send "}
             </motion.button>
           </div>
         </div>

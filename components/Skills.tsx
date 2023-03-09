@@ -1,6 +1,5 @@
+//@ts-nocheck
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import { useWindowContext } from "@/context";
 import { AiFillHtml5 } from "react-icons/ai";
 import { DiCss3Full, DiReact, DiMongodb } from "react-icons/di";
 import { IoLogoJavascript } from "react-icons/io";
@@ -15,22 +14,12 @@ import {
   SiPrisma,
   SiExpress,
   SiFirebase,
-  SiGithub,
 } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
-import AnimatedText from "./AnimatedText";
 import { motion } from "framer-motion";
+import { textVariant } from "@/utils/motion";
+import { styles } from "@/utils/styles";
 const Skills = () => {
-  const skillsRef = useRef<HTMLDivElement | null>(null);
-  const top = skillsRef.current?.getBoundingClientRect().height;
-  const { skillsScrollValue, setSkillsScrollVaue } = useWindowContext();
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setSkillsScrollVaue(top as number);
-      console.log(skillsScrollValue);
-    }
-  }, [skillsScrollValue]);
-  
   const FrontendSkills = [
     {
       name: "HTML",
@@ -112,17 +101,14 @@ const Skills = () => {
   ];
 
   return (
-    <div
-      ref={skillsRef}
-      className="  mx-auto  max-w-6xl px-4 h-full  bg-[#1d1d1d] grid place-content-center font-mono"
-    >
-      <div className=" font-bold text-center flex items-center space-x-2 text-[30px] md:text-[40px] py-6 text-white">
-        <AnimatedText text="My" delay={0} fontSize="5xl" />
-        <AnimatedText text=" Skills" delay={0} fontSize="5xl" />
-      </div>
+    <div className="  mx-auto  max-w-6xl px-4 h-full mt-8   grid place-content-center font-mono">
+      <motion.div variants={textVariant()}>
+        <p className={`${styles.sectionSubText} `}>my skills</p>
+        <h2 className={`${styles.sectionHeadText}`}>Skills.</h2>
+      </motion.div>
       <section className="max-w-5xl grid grid-cols-12 ">
         <div className=" col-span-12 md:col-span-6 flex flex-col gap-5  ">
-          <h1 className="md:text-center text-2xl text-white font-bold ">
+          <h1 className="md:text-center text-2xl text-secondary font-bold ">
             Frontend Skills
           </h1>
           <section className="flex flex-wrap">
@@ -142,7 +128,7 @@ const Skills = () => {
           </section>
         </div>
         <div className=" col-span-12 md:col-span-6 ">
-          <h1 className="md:text-center text-white font-bold text-2xl">
+          <h1 className="md:text-center text-secondary font-bold text-2xl">
             Backend Skills
           </h1>
           <section className="flex md:h-[100px] flex-wrap">
@@ -152,7 +138,7 @@ const Skills = () => {
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   key={i}
-                  className={`flex items-center m-2 space-x-3 px-4 py-2 h-12 rounded bg-white shadow`}
+                  className={`flex items-center m-2 space-x-3 px-4 py-2 h-10 rounded bg-white shadow`}
                 >
                   {skill.icon}
                   <p>{skill.name}</p>
