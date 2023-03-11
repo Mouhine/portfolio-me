@@ -8,7 +8,8 @@ import { Project } from "@/types/project";
 import { urlFor } from "@/utils/client";
 import Image from "next/image";
 import Link from "next/link";
-import Tilt from "react-tilt";
+import Tilt from "react-parallax-tilt";
+
 interface projectsProps {
   project: Project;
 }
@@ -45,11 +46,7 @@ const ProjectCard = ({ project }: projectsProps) => {
 
   return (
     <Tilt
-      options={{
-        max: 45,
-        scale: 1,
-        speed: 450,
-      }}
+      perspective={500}
       className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
     >
       <motion.div

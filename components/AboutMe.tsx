@@ -5,7 +5,8 @@ import AnimatedText from "./AnimatedText";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "@/utils/motion";
 import { styles } from "@/utils/styles";
-import Tilt from "react-tilt";
+import Tilt from "react-parallax-tilt";
+
 import {
   mobile,
   backend,
