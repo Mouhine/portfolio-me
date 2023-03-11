@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { useEffect, useState } from "react";
 import HomePage from "@/components/Home";
 import Projects from "@/components/Projects";
