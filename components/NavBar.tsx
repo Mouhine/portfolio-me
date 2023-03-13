@@ -9,22 +9,6 @@ import SocialMedia from "./SocialMedia";
 const NavBar = () => {
   const { setIsNavOpen } = useWindowContext();
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  };
-
   return (
     <motion.nav
       className={`  px-2 py-4 mx-auto  z-40 text-white h-[6vh] max-w-6xl w-full   fixed inset-0  flex bg-[#050816] items-center justify-between `}
@@ -44,13 +28,11 @@ const NavBar = () => {
       </div>
       <div className="text-sm  flex space-x-4 ">
         <motion.ul
-          variants={container}
           initial="hidden"
           animate="show"
           className="  items-center space-x-6 hidden md:flex  text-[#f2f7fd]  "
         >
           <motion.li
-            variants={item}
             whileHover={{ scale: 1.2 }}
             className="flex items-center space-x-3  cursor-pointer"
           >
@@ -60,7 +42,6 @@ const NavBar = () => {
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.2 }}
-            variants={item}
             className="flex items-center space-x-3  cursor-pointer "
           >
             {" "}
@@ -70,7 +51,6 @@ const NavBar = () => {
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.2 }}
-            variants={item}
             className="flex items-center space-x-3  cursor-pointer "
           >
             {" "}
@@ -80,7 +60,6 @@ const NavBar = () => {
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.2 }}
-            variants={item}
             className="flex items-center space-x-3  cursor-pointer "
           >
             {" "}
@@ -90,7 +69,6 @@ const NavBar = () => {
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.2 }}
-            variants={item}
             className="flex items-center space-x-3 cursor-pointer"
           >
             {" "}
@@ -100,7 +78,6 @@ const NavBar = () => {
           </motion.li>
           <motion.li
             whileHover={{ scale: 1.1 }}
-            variants={item}
             className="flex items-center space-x-3 cursor-pointer"
           >
             {" "}

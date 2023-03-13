@@ -18,15 +18,15 @@ const HomePage = () => {
       <div className=" relative max-w-6xl w-full grid grid-cols-12 mx-auto">
         <section className="md:col-span-6 col-span-12  place-self-center  ">
           <section className=" text-[50px] md:text-[60px] leading-[70px]  ">
-            <AnimatedText text="Hi,I'am   " fontSize={"3xl"} delay={0} />
-            <AnimatedText text="Mohammed" fontSize={"4xl"} delay={0.2} />
+            <h1>{"Hi,I'am"} </h1>
+            <h1>Mohammed</h1>
             <div className="flex space-x-4">
-              <AnimatedText text="Full   " fontSize={"6xl"} delay={0.3} />
-              <AnimatedText text=" Stack " fontSize={"6xl"} delay={0.3} />
+              <h1>Full</h1>
+              <h1>Stack</h1>
             </div>
             <div className="flex items-center space-x-0 md:space-x-4 flex-wrap ">
-              <AnimatedText text="Web " fontSize={"6xl"} delay={0.3} />
-              <AnimatedText text="developer " fontSize={"6xl"} delay={0.4} />
+              <h1>Web</h1>
+              <h1>Developer</h1>
             </div>
           </section>
           <motion.section
